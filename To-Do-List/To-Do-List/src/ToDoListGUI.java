@@ -35,6 +35,11 @@ public class ToDoListGUI extends JFrame {
         taskPanel.add(taskComponentPanel);
 
         // adding in scrolling
+        JScrollPane scrollPane = new JScrollPane(taskPanel);
+        scrollPane.setBounds(8, 70, commonConstants.TASK_PANEL_SIZE.width, commonConstants.TASK_PANEL_SIZE.height);
+        scrollPane.setMaximumSize(commonConstants.TASK_PANEL_SIZE);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         this.getContentPane().add(bannerText);
     }
