@@ -11,5 +11,10 @@ public class commonConstants {
     // task panel configuration
     public static final Dimension TASK_PANEL_SIZE = new Dimension(GUI_SIZE.width - 30, GUI_SIZE.height - 175);
 
+    // button configuration
+    public static final Dimension TASK_BUTTON_SIZE = new Dimension(GUI_SIZE.width, 50);
+
+
+
 
 }

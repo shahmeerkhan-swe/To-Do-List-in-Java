@@ -39,8 +39,30 @@ public class ToDoListGUI extends JFrame {
         scrollPane.setBounds(8, 70, commonConstants.TASK_PANEL_SIZE.width, commonConstants.TASK_PANEL_SIZE.height);
         scrollPane.setMaximumSize(commonConstants.TASK_PANEL_SIZE);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        // adding a button prompt
+        JButton taskButton = new JButton("Add Task");
+        taskButton.setBounds(0, commonConstants.GUI_SIZE.height - 88,
+                commonConstants.TASK_BUTTON_SIZE.width, commonConstants.TASK_BUTTON_SIZE.height);
+
+
 
         this.getContentPane().add(bannerText);
+        this.getContentPane().add(scrollPane);
+        this.getContentPane().add(taskButton);
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 }
