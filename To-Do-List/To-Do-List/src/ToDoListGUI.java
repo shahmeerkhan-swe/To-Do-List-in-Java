@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ToDoListGUI extends JFrame {
+public class ToDoListGUI extends JFrame implements ActionListener {
 
     private JPanel taskPanel, taskComponentPanel;
     public ToDoListGUI() {
@@ -47,7 +49,7 @@ public class ToDoListGUI extends JFrame {
                 commonConstants.TASK_BUTTON_SIZE.width, commonConstants.TASK_BUTTON_SIZE.height);
 
 
-
+        // adding stuff to the frame
         this.getContentPane().add(bannerText);
         this.getContentPane().add(scrollPane);
         this.getContentPane().add(taskButton);
@@ -58,11 +60,8 @@ public class ToDoListGUI extends JFrame {
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
-
-
-
-
-
-
+    }
 }

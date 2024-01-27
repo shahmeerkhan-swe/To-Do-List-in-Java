@@ -14,6 +14,12 @@ public class commonConstants {
     // button configuration
     public static final Dimension TASK_BUTTON_SIZE = new Dimension(GUI_SIZE.width, 50);
 
+    // taskComponent configurations
+    public static final Dimension TASKFIELD_SIZE = new Dimension((int)(TASK_PANEL_SIZE.width * 0.80), 50);  
+    public static final Dimension CHECKBOX_SIZE = new Dimension((int)(TASKFIELD_SIZE.width * 0.05), 50);
+
+
+
 
 
 
