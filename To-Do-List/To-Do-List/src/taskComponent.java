@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class taskComponent extends JPanel {
+public class taskComponent extends JPanel implements ActionListener {
 
     private JCheckBox checkBox;
     private JTextPane taskField;
@@ -24,6 +26,7 @@ public class taskComponent extends JPanel {
         // check box
         checkBox = new JCheckBox();
         checkBox.setPreferredSize(commonConstants.CHECKBOX_SIZE);
+        checkBox.addActionListener(this);
 
         // delete button
         deleteButton = new JButton("X");
@@ -36,4 +39,21 @@ public class taskComponent extends JPanel {
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+
+        if (checkBox.isSelected()) {
+            // Converts html tags to empty strings
+            String taskText = taskField.getText().replaceAll("<[^>]*>", "");
+            // Adding a strikethough
+            taskField.setText("<html><s>" + taskText + "</s></html>");
+
+        } else if (!checkBox.isSelected()) {
+            String taskText = taskField.getText().replaceAll("<[^>]*>", "");
+
+            taskField.setText(taskText);
+        }
+
+    }
 }

@@ -32,6 +32,7 @@ public class ToDoListGUI extends JFrame implements ActionListener {
         //task panel
         taskPanel = new JPanel();
         taskComponentPanel = new JPanel();
+
         //task component Panel
         taskComponentPanel.setLayout(new BoxLayout(taskComponentPanel, BoxLayout.Y_AXIS));
         taskPanel.add(taskComponentPanel);
@@ -45,7 +46,7 @@ public class ToDoListGUI extends JFrame implements ActionListener {
 
         // adding a button prompt
         JButton taskButton = new JButton("Add task");
-        taskButton.setBounds(-5, commonConstants.GUI_SIZE.height - 88,
+        taskButton.setBounds(0, commonConstants.GUI_SIZE.height - 88,
                 commonConstants.TASK_BUTTON_SIZE.width, commonConstants.TASK_BUTTON_SIZE.height);
         taskButton.addActionListener(this);
 
@@ -60,7 +61,7 @@ public class ToDoListGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        System.out.println(command);
+       // System.out.println(command);
 
         if (command.equalsIgnoreCase("Add task")) {
             // creating a task component
