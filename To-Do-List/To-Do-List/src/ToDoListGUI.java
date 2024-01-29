@@ -44,10 +44,10 @@ public class ToDoListGUI extends JFrame implements ActionListener {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         // adding a button prompt
-        JButton taskButton = new JButton("Add Task");
-        taskButton.setBounds(0, commonConstants.GUI_SIZE.height - 88,
+        JButton taskButton = new JButton("Add task");
+        taskButton.setBounds(-5, commonConstants.GUI_SIZE.height - 88,
                 commonConstants.TASK_BUTTON_SIZE.width, commonConstants.TASK_BUTTON_SIZE.height);
-
+        taskButton.addActionListener(this);
 
         // adding stuff to the frame
         this.getContentPane().add(bannerText);
@@ -55,13 +55,22 @@ public class ToDoListGUI extends JFrame implements ActionListener {
         this.getContentPane().add(taskButton);
 
 
-
-
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        System.out.println(command);
 
+        if (command.equalsIgnoreCase("Add task")) {
+            // creating a task component
+            taskComponent tComponent = new taskComponent(taskComponentPanel);
+            taskComponentPanel.add(tComponent);
+
+            // requesting focus for task field
+            tComponent.getTaskField().requestFocus();
+            repaint();
+            revalidate();
+        }
     }
 }

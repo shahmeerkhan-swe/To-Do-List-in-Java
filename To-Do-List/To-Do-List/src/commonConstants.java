@@ -3,7 +3,7 @@ import java.awt.*;
 public class commonConstants {
 
     // tab configurations
-    public static final Dimension GUI_SIZE  = new Dimension(540, 760);  // GUI Dimension sizes
+    public static final Dimension GUI_SIZE  = new Dimension(540, 760);
 
     // banner configurations
     public static final Dimension BANNER_SIZE = new Dimension(GUI_SIZE.width, 50);
@@ -17,10 +17,6 @@ public class commonConstants {
     // taskComponent configurations
     public static final Dimension TASKFIELD_SIZE = new Dimension((int)(TASK_PANEL_SIZE.width * 0.80), 50);  
     public static final Dimension CHECKBOX_SIZE = new Dimension((int)(TASKFIELD_SIZE.width * 0.05), 50);
-
-
-
-
-
+    public static final Dimension DELETE_BUTTON_SIZE = new Dimension((int)(TASKFIELD_SIZE.width * 0.12), 50);
 
 }
