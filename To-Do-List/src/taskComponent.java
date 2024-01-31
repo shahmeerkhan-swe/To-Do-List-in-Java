@@ -1,6 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class taskComponent extends JPanel implements ActionListener {
 
@@ -20,17 +23,34 @@ public class taskComponent extends JPanel implements ActionListener {
 
         // task field stuff
         taskField = new JTextPane();
+        taskField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         taskField.setPreferredSize(commonConstants.TASKFIELD_SIZE);
         taskField.setContentType("text/html");
+        taskField.addFocusListener(new FocusListener() {
+
+            @Override
+            // Indicates which task field is currently selected
+            public void focusGained(FocusEvent e) {
+                taskField.setBackground(Color.WHITE);
+
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                taskField.setBackground(null);
+            }
+        });
 
         // check box
         checkBox = new JCheckBox();
         checkBox.setPreferredSize(commonConstants.CHECKBOX_SIZE);
+        checkBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         checkBox.addActionListener(this);
 
         // delete button
         deleteButton = new JButton("X");
         deleteButton.setPreferredSize(commonConstants.DELETE_BUTTON_SIZE);
+        deleteButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         deleteButton.addActionListener(this);
 
         // adding to task component

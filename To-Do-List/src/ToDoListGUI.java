@@ -43,12 +43,19 @@ public class ToDoListGUI extends JFrame implements ActionListener {
         // adding in scrolling
         JScrollPane scrollPane = new JScrollPane(taskPanel);
         scrollPane.setBounds(8, 70, commonConstants.TASK_PANEL_SIZE.width, commonConstants.TASK_PANEL_SIZE.height);
+        scrollPane.setBorder(BorderFactory.createLoweredBevelBorder());
         scrollPane.setMaximumSize(commonConstants.TASK_PANEL_SIZE);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
+        // changing the speed of scrolling
+        JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
+        verticalScrollBar.setUnitIncrement(20);
+
         // adding a button prompt
         JButton taskButton = new JButton("Add task");
+        taskButton.setFont(createFont("add-ons/LEMONMILK-LightItalic.otf", 26f));
+        taskButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         taskButton.setBounds(0, commonConstants.GUI_SIZE.height - 88,
                 commonConstants.TASK_BUTTON_SIZE.width, commonConstants.TASK_BUTTON_SIZE.height);
         taskButton.addActionListener(this);
@@ -92,6 +99,14 @@ public class ToDoListGUI extends JFrame implements ActionListener {
             // creating a task component
             taskComponent tComponent = new taskComponent(taskComponentPanel);
             taskComponentPanel.add(tComponent);
+
+            // make the previous task appear disabled
+            if (taskComponentPanel.getComponentCount() > 1) {
+                taskComponent previousTask = (taskComponent) taskComponentPanel.getComponent(
+                        taskComponentPanel.getComponentCount() - 2
+                );
+                previousTask.getTaskField().setBackground(null);
+            }
 
             // requesting focus for task field
             tComponent.getTaskField().requestFocus();
